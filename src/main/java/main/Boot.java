@@ -9,7 +9,13 @@ import io.vertx.core.http.HttpServerResponse;
 
 public class Boot {
     public static void main(String[]args){
-        System.out.println("Mety");
+        Vertx vertx = Vertx.vertx();
 
+        vertx.createHttpServer().requestHandler(req -> {
+            req.response()
+                    .putHeader("content-type", "text/plain")
+                    .end("Hello from Vert.x!");
+        }).listen(8080);
     }
+
 }
