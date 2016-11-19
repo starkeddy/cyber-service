@@ -13,7 +13,7 @@ public class Boot {
 
         vertx.createHttpServer().requestHandler(req -> {
             req.response()
-                    .putHeader("content-type", "text/plain")
+                    .putHeader("content-type", "text/html")
                     .end("Hello from Vert.x!");
         }).listen(8080);
     }
